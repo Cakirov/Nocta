@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+    <!----------------------------- Main Site Section ------------------------------>
+
+    <main class="main-container">
+
+        <!------------------------ Site Title ---------------------->
+
+        <section class="container">
+            <div class="site-content">
+                <div class="posts">
+
+                    <div class="post-content" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="post-image">
+                            <div>
+                                {% if post.image %}
+                                <img src="{{ post.image.url }}" class="img rounded" alt="blog1" style="width: 100%; max-width: 500px; border-radius: 8px;">
+                                {% else %}
+                                <br>
+                                {% endif %}
+                            </div>
+                            <div class="post-info flex-row margin-top-10">
+                                <span><i class="fas fa-user" style="color: black;"></i>&nbsp;&nbsp;{{post.user}}</span>
+                                <span><i class="fas fa-calendar-alt" style="color: black;"></i>&nbsp;&nbsp;{{post.publishing_date}}</span>
+                                <span class="comments-count"><i class="fas fa-comments" style="color: black;"></i>&nbsp;{{ post.comments.count }} Comments</span>
+                            </div>
+                        </div>
+                        <div class="post-title">
+                            <a href="#" class="post-link" style="font-weight: normal; font-size: 1.5em; color: black;">{{post.title}}</a>
+                            <p class="post-content-text" style="line-height: 1.6;">{{post.content}}</p>
+                        </div>
+                    </div>
+                    <hr class="post-divider" style="border: 1px solid #e0e0e0;">
+                
+
+                </div>
+            </div>
+        </section>
+
+        <h3 class="comment-title" style="margin-top: 30px; font-weight: bold; margin-left: 20px; font-size: 1.8em; color: #333;">Add a Comment:</h3>
+        {% include 'forms.html' %} 
+
+    </main>
+
+    <h3 class="comments-header" style="margin-top: 30px; font-weight: bold; margin-left: 20px; font-size: 1.8em; color: #333;">Comments:</h3>
+    <div class="comments-section">
+        {% for comment in post.comments.all %}
+            {% if comment.approved_comment %}
+                <div class="comment-item" style="border-bottom: 1px solid #e0e0e0; padding: 10px 0; margin-bottom: 10px;">
+                    <h4 class="comment-author" style="font-weight: bold; color: #333; margin-left: 0;">{{ comment.name }} | <small style="color: #777;">{{ comment.created_date|timesince }} ago </small></h4>
+                    <p class="comment-content" style="margin: 5px 0; line-height: 1.5;">{{ comment.content|linebreaks }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+
+ 

@@ -1,0 +1,217 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Nocta</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+
+    <style>
+        .search-wrapper {
+            width: 150px;
+        }
+        .search-input {
+            padding: 5px;
+            width: 100%;
+            border-radius: 3px;
+        }
+        .search-button {
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+        .nav-items {
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+    
+
+    
+    </style>
+
+    
+
+</head>
+
+<body style="background-color: #f0f0f0;">
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="/" class="text-gray">Nocta</a>
+            </div>
+            
+            <!-- Arama çubuğu -->
+            <div class="search-wrapper">
+                <form action="/search" method="GET" class="search-form">
+                    <input type="text" name="q" placeholder="Search..." class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'category' %}">Categories</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'login' %}">Login</a>
+                    </li>
+                    
+                    <li class="nav-link">
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="https://www.facebook.com.tr" target="black"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com.tr" target="black"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/?lang=tr" target="black"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com.tr" target="white"><i class="fab fa-youtube"></i></a>
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+    <h2 class="contact-title">Contact Nocta</h2>
+    <p class="contact-description">You can use the information below to reach us.</p>
+    <form class="contact-form">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" name="name" required class="form-input">
+        
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" name="email" required class="form-input">
+        
+        <label for="message" class="form-label">Message:</label>
+        <textarea id="message" name="message" required class="form-textarea"></textarea>
+        
+        <button type="submit" class="form-button">Send</button>
+    </form>
+   
+</section>
+
+<!-- CSS -->
+<style>
+    .contact-section {
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 600px;
+        margin: 40px auto;
+        transition: transform 0.3s;
+    }
+    .contact-section:hover {
+        transform: scale(1.02);
+    }
+    .contact-title {
+        color: #333;
+        text-align: center;
+        font-size: 2.5em;
+        margin-bottom: 15px;
+        font-family: 'Arial', sans-serif;
+    }
+    .contact-description {
+        text-align: center;
+        margin-bottom: 25px;
+        font-size: 1.2em;
+        color: #666;
+    }
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .form-label {
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+    .form-input, .form-textarea {
+        padding: 12px;
+        width: 90%;
+        border: 1px solid #dad9d9;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        transition: border-color 0.3s;
+    }
+    .form-input:focus, .form-textarea:focus {
+        border-color: #5cb85c;
+        outline: none;
+    }
+    .form-button {
+        padding: 12px 25px;
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    .form-button:hover {
+        background-color: #4cae4c;
+        transform: scale(1.05);
+    }
+</style>
+
+<!-- JavaScript -->
+<script>
+    document.querySelector('.contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Your message has been sent!');
+        this.reset(); // Reset the form after submission
+    });
+</script>
+
+    <!-- Footer Section -->
+    <footer class="footer" style="background-color: #333; color: white; padding: 20px 10px; text-align: center;">
+        <div style="margin-bottom: 10px;">
+            <h3 style="margin: 0; font-size: 1.5em;">Nocta</h3>
+            <p style="margin: 5px 0; color: gray;">&copy; 2024 Nocta. All rights reserved.</p>
+        </div>
+        <div>
+            <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Privacy Policy</a> | 
+            <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Terms of Use</a>
+        </div>
+        <div style="margin-top: 10px;">
+            <a href="https://www.facebook.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/?lang=tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+</body>

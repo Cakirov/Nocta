@@ -1,0 +1,236 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nocta Register</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+
+    <style>
+        .search-wrapper {
+            width: 150px;
+        }
+        .search-input {
+            padding: 5px;
+            width: 100%;
+            border-radius: 3px;
+        }
+        .search-button {
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+        .nav-items {
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+        
+    </style>
+
+</head>
+
+<body style="background-color: #f0f0f0;">
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="/" class="text-gray">Nocta</a>
+            </div>
+            
+            <!-- Arama çubuğu -->
+            <div class="search-wrapper">
+                <form action="/search" method="GET" class="search-form">
+                    <input type="text" name="q" placeholder="Search..." class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'category' %}">Category</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'login' %}">Login</a>
+                    </li>
+                    
+                    <li class="nav-link">
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="https://www.facebook.com.tr" target="black"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com.tr" target="black"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/?lang=tr" target="black"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com.tr" target="white"><i class="fab fa-youtube"></i></a>
+                
+                
+            </div>
+        </div>
+    </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nocta Register</title>
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: 'Arial', sans-serif;
+        }
+        .register-container {
+            max-width: 500px;
+            margin: 35px auto;
+            padding: 30px;  
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .register-container:hover {
+            transform: scale(1.02);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-input {
+            width: calc(100% - 24px);
+            padding: 12px;
+            border: 1px solid #dad9d9;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: border-color 0.3s;
+        }
+        .form-input:focus {
+            border-color: #5cb85c;
+            outline: none;
+        }
+        .register-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .register-button:hover {
+            background-color: #4cae4c;
+            transform: scale(1.05);
+        }
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Create an Account</h2>
+        
+        {% if messages %}
+            <div class="message-container">
+                {% for message in messages %}
+                    <div class="message" style="color: red; text-align: center;">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        
+        <form action="{% url 'register' %}" method="POST" class="register-form" onsubmit="return showLoading();">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="fullname">Username:</label>
+                <input type="text" id="fullname" name="fullname" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required class="form-input">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required class="form-input" oninput="validatePassword()">
+                <div id="password-error" style="color: red; display: none;">Password must be at least 6 characters.</div>
+            </div>
+            <button type="submit" class="register-button">Register</button>
+        </form>
+        <p class="login-link" style="color: rgb(189, 188, 188); font-weight: bold; padding: 10px; border-radius: 5px;">
+            Already have an account? <a href="{% url 'login' %}" style="color: #000000; text-decoration: underline;">Login here</a>
+        </p>
+    </div>
+
+    <footer class="footer" style="background-color: #333; color: white; padding: 15px 10px; text-align: center;">
+        <div style="margin-bottom: 10px;">
+            <h3 style="margin: 0; font-size: 1.5em;">Nocta</h3>
+            <p style="margin: 5px 0; color: gray;">&copy; 2024 Nocta. All rights reserved.</p>
+        </div>
+        <div>
+            <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Privacy Policy</a> | 
+            <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Terms of Use</a>
+        </div>
+        <div style="margin-top: 10px;">
+            <a href="https://www.facebook.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/?lang=tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.youtube.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script>
+        function showLoading() {
+            // Kayıt işlemi başarılı olduğunda alert göster
+            alert("Registration is successful!");
+            return true; // Formun gönderilmesine izin ver
+        }
+
+        function validatePassword() {
+            const passwordInput = document.getElementById('password');
+            const errorMessage = document.getElementById('password-error');
+            if (passwordInput.value.length < 6) {
+                errorMessage.style.display = 'block';
+                passwordInput.setCustomValidity("Şifre en az 6 karakter olmalıdır.");
+            } else {
+                errorMessage.style.display = 'none';
+                passwordInput.setCustomValidity("");
+            }
+        }
+    </script>
+    </body>

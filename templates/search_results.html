@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="search-container" style="padding: 20px;">
+    <h1 class="search-title" style="font-size: 2em; color: #7f3e10; margin-left: 20px;">Search Results for "{{ query }}"</h1>
+
+    {% if results %}
+        <div class="result-item" style="margin-left: 20px;">
+            <a href="{{ results.0.get_absolute_url }}" class="result-link" style="font-size: 1.5em; color: #082c52; font-weight: bold;">{{ results.0.title }}</a>
+            <p class="post-description" style="font-size: 1.2em; color: #470dda;">{{ results.0.description }}</p>
+        </div>
+    {% else %}
+        <p class="no-results" style="margin-left: 20px;">No results found.</p>
+    {% endif %}
+    <div style="height: 370px;"></div>
+</div>
+{% endblock %} 

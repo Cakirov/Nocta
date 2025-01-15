@@ -1,0 +1,87 @@
+{% load static %}
+<!-- --------------------------- Footer ---------------------------------------- -->
+
+<footer class="footer" style="background-color: #333; color: white; padding: 15px 10px; text-align: center;">
+    <div style="margin-bottom: 10px;">
+        <h3 style="margin: 0; font-size: 1.5em;">Nocta</h3>
+        <p style="margin: 5px 0; color: orange;">&copy; 2024 Nocta. All rights reserved.</p>
+    </div>
+    <div>
+        <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Privacy Policy</a> | 
+        <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Terms of Use</a>
+    </div>
+    <div style="margin-top: 10px;">
+        <a href="https://www.facebook.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/?lang=tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-youtube"></i></a>
+    </div>
+</footer>
+</body>     
+
+
+<!-- -------------x------------- Footer --------------------x------------------- -->
+
+<!-- CSS for Footer -->
+<style>
+    .footer {
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+    .footer-title {
+        font-size: 14px;
+        margin-bottom: 8px;
+        font-weight: bold;
+    }
+    .footer-text {
+        font-size: 12px;
+        margin: 3px 0;
+    }
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+    .footer-links li {
+        margin: 5px 0;
+    }
+    .footer-links a {
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .footer-links a:hover {
+        color: #f39c12; /* Hover color */
+    }
+    .social-icons a {
+        margin: 0 10px;
+        font-size: 20px;
+    }
+    .move-up {
+        margin-top: 15px;
+    }
+</style>
+
+<!-- Custom Javascript for smooth scroll -->
+<script>
+    document.querySelector('.move-up').addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
+
+<!-- Jquery Library file -->
+<script src="{% static 'js/Jquery3.4.1.min.js' %}"></script>
+
+<!-- --------- Owl-Carousel js ------------------->
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+<!-- ------------ AOS js Library  ------------------------- -->
+<script src="{% static 'js/aos.js' %}"></script>
+
+<!-- Custom Javascript file -->
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>
+

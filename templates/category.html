@@ -1,0 +1,240 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nocta</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+
+    <style>
+        .search-wrapper {
+            width: 150px;
+        }
+        .search-input {
+            padding: 5px;
+            width: 100%;
+            border-radius: 3px;
+        }
+        .search-button {
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+        .nav-items {
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    
+
+</head>
+
+<body>
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="/" class="text-gray">Nocta</a>
+            </div>
+            
+            <!-- Arama çubuğu -->
+            <div class="search-wrapper">
+                <form action="/search" method="GET" class="search-form">
+                    <input type="text" name="q" placeholder="Search..." class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'category' %}">Categories</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="https://www.facebook.com.tr" target="black"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com.tr" target="black"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/?lang=tr" target="black"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com.tr" target="white"><i class="fab fa-youtube"></i></a>
+                
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
+<div class="category-container">
+    <h1 class="category-title">Nocta Categories</h1>
+    <div class="category-row">
+        <div class="category-card">
+            <h2><a href="/cat/real-estate/">Real Estate</a></h2>
+            <p>Find your dream home or investment property.</p>
+            <a href="/cat/real-estate/" class="view-button">View Products</a>
+        </div>
+        <div class="category-card">
+            <h2><a href="/cat/vehicles/">Vehicles</a></h2>
+            <p>Explore a variety of vehicles for every need.</p>
+            <a href="/cat/vehicles/" class="view-button">View Products</a>
+        </div>
+        <div class="category-card">
+            <h2><a href="/cat/electronics/">Electronics</a></h2>
+            <p>Discover the latest gadgets to enhance your life.</p>
+            <a href="/cat/electronics/" class="view-button">View Products</a>
+        </div>
+        <div class="category-card">
+            <h2><a href="/cat/job-listings/">Job Listings</a></h2>
+            <p>Browse a wide range of job opportunities tailored to your skills.</p>
+            <a href="/cat/job-listings/" class="view-button">View Products</a>
+        </div>
+    </div>
+    <div class="category-row">
+        <div class="category-card">
+            <h2><a href="/cat/second-hand/">Second Hand</a></h2>
+            <p>Shop for quality second-hand items at great prices.</p>
+            <a href="/cat/second-hand/" class="view-button">View Products</a>
+        </div>
+        <div class="category-card">
+            <h2><a href="/cat/furniture/">Furniture</a></h2>
+            <p>Find stylish and affordable furniture to transform your home.</p>
+            <a href="/cat/furniture/" class="view-button">View Products</a>
+        </div>
+        <div class="category-card">
+            <h2><a href="/cat/clothing/">Clothing</a></h2>
+            <p>Browse our collection of trendy clothing for all occasions.</p>
+            <a href="/cat/clothing/" class="view-button">View Products</a>
+        </div>
+        <div class="category-card">
+            <h2><a href="/cat/sports-equipment/">Sports Equipment</a></h2>
+            <p>Get the best sports equipment to enhance your performance.</p>
+            <a href="/cat/sports-equipment/" class="view-button">View Products</a>
+        </div>
+    </div>
+</div>
+
+<footer class="footer" style="background-color: #333; color: white; padding: 20px 10px; text-align: center;">
+    <div style="margin-bottom: 10px;">
+        <h3 style="margin: 0; font-size: 1.5em;">Nocta</h3>
+        <p style="margin: 5px 0; color: gray;">&copy; 2024 Nocta. All rights reserved.</p>
+    </div>
+    <div>
+        <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Privacy Policy</a> | 
+        <a href="#" style="color: white; margin: 0 5px; text-decoration: none;">Terms of Use</a>
+    </div>
+    <div style="margin-top: 10px;">
+        <a href="https://www.facebook.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/?lang=tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.youtube.com.tr" target="_blank" style="color: white; margin: 0 5px;"><i class="fab fa-youtube"></i></a>
+    </div>
+</footer>
+</body>
+
+<style>
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+.category-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+.category-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.category-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin: 10px;
+    padding: 24px;
+    width: 280px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.category-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.view-button {
+    background-color: #faab4b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.view-button:hover {
+    background-color: #fbb969;
+}
+</style>
+

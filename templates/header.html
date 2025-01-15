@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nocta</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+
+
+    <!-- --------- Owl-Carousel ------------------->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <!-- ------------ AOS Library ------------------------- -->
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+
+    <!-- Custom Style   -->
+    <link rel="stylesheet" href="{% static 'css/Style.css' %}">
+
+    <style>
+        .search-wrapper {
+            width: 150px;
+        }
+        .search-input {
+            padding: 5px;
+            width: 100%;
+            border-radius: 3px;
+        }
+        .search-button {
+            padding: 5px 10px;
+            border-radius: 3px;
+        }
+        .search-button:hover {
+            background-color: #0056b3;
+        }
+        .nav-items {
+            display: flex;
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    
+
+</head>
+
+<body>
+
+    <!-- ----------------------------  Navigation ---------------------------------------------- -->
+
+    <nav class="nav">
+        <div class="nav-menu flex-row">
+            <div class="nav-brand">
+                <a href="/" class="text-gray">Nocta</a>
+            </div>
+            
+            <!-- Arama çubuğu -->
+            <div class="search-wrapper">
+                <form action="/search" method="GET" class="search-form">
+                    <input type="text" name="q" placeholder="Search..." class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="toggle-collapse">
+                <div class="toggle-icons">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+            
+            <div>
+                <ul class="nav-items">
+                    <li class="nav-link">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'category' %}">Categories</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social text-gray">
+                <a href="https://www.facebook.com.tr" target="black"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com.tr" target="black"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/?lang=tr" target="black"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com.tr" target="white"><i class="fab fa-youtube"></i></a>
+                
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- ------------x---------------  Navigation --------------------------x------------------- -->
